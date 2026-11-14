@@ -26,26 +26,62 @@
     if (e.key === 'Escape' && document.body.classList.contains('menu-open')) toggle.click();
   });
 
-  /* ---- Hero: carrusel de bebidas ---- */
+  /* ---- Split titles into letters for reveal ---- */
+  function splitTitle(el) {
+    if (!el || el.dataset.split) return;
+    var text = el.textContent.replace(/\s+/g, ' ').trim();
+    el.textContent = '';
+    var delay = 0;
+    text.split(/(\s+)/).forEach(function (part) {
+      if (/^\s+$/.test(part)) {
+        el.appendChild(document.createTextNode(' '));
+        return;
+      }
+      var w = document.createElement('span');
+      w.className = 'w';
+      part.split('').forEach(function (ch) {
+        var s = document.createElement('span');
+        s.className = 'ch';
+        s.textContent = ch;
+        s.style.setProperty('--i', String(delay++));
+        w.appendChild(s);
+      });
+      el.appendChild(w);
+    });
+    el.dataset.split = '1';
+  }
+
+  /* ---- Hero carousel (full-bleed photos) ---- */
   var hero = document.querySelector('.hero');
-  var themes = ['americana', 'frutilla', 'coffeechoc', 'coco'];
+  var themes = ['cafeteria', 'desayuno', 'pasteleria', 'jugos'];
   var copies = hero.querySelectorAll('.slide-copy');
-  var drinks = hero.querySelectorAll('.drink');
-  var sets = hero.querySelectorAll('.ing-set');
+  var photos = hero.querySelectorAll('.hero-photo');
   var words = hero.querySelectorAll('.bigword span');
   var thumbs = hero.querySelectorAll('.thumb');
   var counter = hero.querySelector('.counter b');
   var live = hero.querySelector('.live');
   var playBtn = hero.querySelector('.ctrl-play');
-  var DURATION = 6500;
-  var current = 0, timer = null, userPaused = reduce.matches, hoverPaused = false;
+  var DURATION = 6000;
+  var current = 0, timer = null, userPaused = reduce.matches;
   hero.style.setProperty('--dur', DURATION + 'ms');
+  copies.forEach(function (c) {
+    var t = c.querySelector('.slide-title');
+    if (t) splitTitle(t);
+  });
 
   function setState(list, i, prev) {
     list.forEach(function (el, k) {
       el.classList.toggle('is-active', k === i);
       el.classList.toggle('is-leaving', k === prev && prev !== i);
     });
+  }
+
+  function restartKenBurns(i) {
+    var img = photos[i] && photos[i].querySelector('img');
+    if (!img || reduce.matches) return;
+    img.style.animation = 'none';
+    void img.offsetWidth;
+    img.style.animation = '';
   }
 
   function go(i, announce) {
@@ -55,19 +91,23 @@
     var prev = current;
     current = i;
     hero.dataset.theme = themes[i];
-    [copies, drinks, sets, words].forEach(function (l) { setState(l, i, prev); });
+    [copies, photos, words].forEach(function (l) { setState(l, i, prev); });
+    restartKenBurns(i);
     copies.forEach(function (el, k) { el.setAttribute('aria-hidden', k === i ? 'false' : 'true'); });
     thumbs.forEach(function (t, k) { t.setAttribute('aria-current', k === i ? 'true' : 'false'); });
     counter.textContent = String(i + 1).padStart(2, '0');
-    if (announce) live.textContent = copies[i].querySelector('.slide-title').textContent.replace(/\s+/g, ' ').trim() + ', ' + (i + 1) + ' de ' + n;
+    if (announce) {
+      var titleEl = copies[i].querySelector('.slide-title');
+      live.textContent = (titleEl ? titleEl.textContent : '') + ', ' + (i + 1) + ' de ' + n;
+    }
     restart();
   }
 
-  function playing() { return !userPaused && !hoverPaused && !document.hidden; }
+  function playing() { return !userPaused && !document.hidden && !reduce.matches; }
   function restart() {
     clearTimeout(timer);
     hero.classList.remove('is-playing');
-    void hero.offsetWidth; // reinicia la barra de progreso
+    void hero.offsetWidth;
     if (playing()) {
       hero.classList.add('is-playing');
       hero.classList.remove('is-paused');
@@ -88,21 +128,20 @@
   thumbs.forEach(function (t, k) { t.addEventListener('click', function () { go(k, true); }); });
   playBtn.addEventListener('click', function () { userPaused = !userPaused; updatePlayBtn(); restart(); });
 
-  var stageArea = hero.querySelector('.hero-grid');
-  stageArea.addEventListener('mouseenter', function () { hoverPaused = true; restart(); });
-  stageArea.addEventListener('mouseleave', function () { hoverPaused = false; restart(); });
-  hero.addEventListener('focusin', function () { hoverPaused = true; restart(); });
-  hero.addEventListener('focusout', function (e) { if (!hero.contains(e.relatedTarget)) { hoverPaused = false; restart(); } });
+  // Autoplay stays on while looking at the hero (no hover-pause).
   document.addEventListener('visibilitychange', restart);
-  reduce.addEventListener && reduce.addEventListener('change', function (e) { if (e.matches) { userPaused = true; updatePlayBtn(); restart(); } });
+  if (reduce.addEventListener) {
+    reduce.addEventListener('change', function (e) {
+      if (e.matches) { userPaused = true; updatePlayBtn(); restart(); }
+    });
+  }
 
   hero.addEventListener('keydown', function (e) {
-    if (e.target.closest('a')) return;
+    if (e.target.closest('a,button')) return;
     if (e.key === 'ArrowRight') { go(current + 1, true); }
     if (e.key === 'ArrowLeft') { go(current - 1, true); }
   });
 
-  // swipe en móvil
   var sx = 0, sy = 0, tracking = false;
   hero.addEventListener('touchstart', function (e) { var t = e.touches[0]; sx = t.clientX; sy = t.clientY; tracking = true; }, { passive: true });
   hero.addEventListener('touchend', function (e) {
@@ -111,46 +150,74 @@
     if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.3) go(current + (dx < 0 ? 1 : -1), true);
   }, { passive: true });
 
-  // parallax suave de ingredientes con el mouse
-  if (!reduce.matches && window.matchMedia('(pointer:fine)').matches) {
-    var ingWrap = hero.querySelector('.ingredients');
-    hero.addEventListener('mousemove', function (e) {
+  /* Subtle mouse parallax + scroll parallax on the photo layer */
+  var media = hero.querySelector('.hero-media');
+  var px = 0, py = 0, sxv = 0, syv = 0, sp = 0;
+  if (!reduce.matches) {
+    if (window.matchMedia('(pointer:fine)').matches) {
+      hero.addEventListener('mousemove', function (e) {
+        var r = hero.getBoundingClientRect();
+        px = (e.clientX - r.left) / r.width - .5;
+        py = (e.clientY - r.top) / r.height - .5;
+      });
+    }
+    window.addEventListener('scroll', function () {
       var r = hero.getBoundingClientRect();
-      var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-      ingWrap.style.transform = 'translate3d(' + (x * -18) + 'px,' + (y * -14) + 'px,0)';
-    });
+      if (r.bottom > 0 && r.top < window.innerHeight) {
+        sp = Math.max(-1, Math.min(1, -r.top / Math.max(r.height, 1)));
+      }
+    }, { passive: true });
+    (function tick() {
+      sxv += (px * 16 - sxv) * .06;
+      syv += (py * 12 + sp * 28 - syv) * .06;
+      media.style.transform = 'translate3d(' + sxv.toFixed(2) + 'px,' + syv.toFixed(2) + 'px,0) scale(1.04)';
+      requestAnimationFrame(tick);
+    })();
   }
 
+  /* Optional: ?slide=0..3 pauses autoplay on that slide (used for captures). */
+  var shot = new URLSearchParams(location.search).get('slide');
+  if (shot !== null) userPaused = true;
   updatePlayBtn();
-  current = -1; go(0, false);
+  current = -1;
+  go(shot !== null ? Math.max(0, parseInt(shot, 10) || 0) : 0, false);
 
   /* ---- Carta: pestañas ---- */
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
-  var panels = document.querySelectorAll('.panel');
   var chipsWrap = document.querySelector('.chips');
   function selectTab(tab, focus) {
     tabs.forEach(function (t) {
       var on = t === tab;
       t.setAttribute('aria-selected', on ? 'true' : 'false');
       t.tabIndex = on ? 0 : -1;
-      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      var panel = document.getElementById(t.getAttribute('aria-controls'));
+      var wasHidden = panel.hidden;
+      panel.hidden = !on;
+      if (on && !wasHidden) { /* keep */ }
+      if (on) {
+        panel.style.animation = 'none';
+        void panel.offsetWidth;
+        panel.style.animation = '';
+      }
     });
     if (focus) tab.focus();
-    // chips de categorías del panel activo
     var panel = document.getElementById(tab.getAttribute('aria-controls'));
     chipsWrap.innerHTML = '';
     panel.querySelectorAll('.cat').forEach(function (c) {
       var a = document.createElement('a');
-      a.href = '#' + c.id; a.textContent = c.querySelector('.cat-title').firstChild.textContent.trim();
+      a.href = '#' + c.id;
+      var title = c.querySelector('.cat-title');
+      a.textContent = title.firstChild.textContent.trim();
       chipsWrap.appendChild(a);
     });
   }
   tabs.forEach(function (t, k) {
     t.addEventListener('click', function () {
       selectTab(t, false);
-      var menu = document.getElementById('carta');
       var tabsBar = document.querySelector('.tabs');
-      if (tabsBar.getBoundingClientRect().top <= 80) window.scrollTo({ top: menu.querySelector('.tabs').offsetTop - 40, behavior: reduce.matches ? 'auto' : 'smooth' });
+      if (tabsBar.getBoundingClientRect().top <= 80) {
+        window.scrollTo({ top: tabsBar.getBoundingClientRect().top + window.scrollY - 40, behavior: reduce.matches ? 'auto' : 'smooth' });
+      }
     });
     t.addEventListener('keydown', function (e) {
       var i = null;
@@ -163,11 +230,26 @@
   });
   if (tabs.length) selectTab(tabs[0], false);
 
-  /* ---- Revelado al scrollear ---- */
+  /* ---- Revelado al scrollear (secciones, fotos, ítems de carta) ---- */
+  document.querySelectorAll('.cat, .item, .place').forEach(function (el) {
+    if (!el.classList.contains('reveal')) el.classList.add('reveal');
+  });
   if ('IntersectionObserver' in window && !reduce.matches) {
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
-    }, { rootMargin: '0px 0px -8% 0px' });
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          var el = en.target;
+          el.classList.add('is-in');
+          if (el.classList.contains('cat')) {
+            el.querySelectorAll('.item').forEach(function (item, i) {
+              item.style.transitionDelay = (i * 45) + 'ms';
+              item.classList.add('is-in');
+            });
+          }
+          io.unobserve(el);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
   } else {
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });

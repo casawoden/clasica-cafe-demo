@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Clásica · Panadería y cafetería en Bahía Blanca</title>
   <meta name="description" content="Clásica, panadería y cafetería en Bahía Blanca. Café, frappés, desayunos, pastelería y salados. Mirá la carta y encontrá tu sucursal: Alem 359, Colón 326, Darwin 416 y Brasil 821.">
-  <meta name="theme-color" content="#0d0907">
+  <meta name="theme-color" content="#140e0c">
   <!-- TODO: ajustar el dominio final antes de publicar -->
   <link rel="canonical" href="https://www.panaderiaclasica.com.ar/">
   <meta property="og:type" content="website">
@@ -14,15 +14,15 @@
   <meta property="og:title" content="Clásica · Panadería y cafetería en Bahía Blanca">
   <meta property="og:description" content="Café, frappés, desayunos, pastelería y salados. Mirá la carta y encontrá tu sucursal en Bahía Blanca.">
   <meta property="og:url" content="https://www.panaderiaclasica.com.ar/">
-  <meta property="og:image" content="https://www.panaderiaclasica.com.ar/assets/img/og-image.jpg">
+  <meta property="og:image" content="https://casawoden.github.io/clasica-cafe-demo/assets/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/img/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
-  <link rel="preload" as="image" href="assets/img/drink-americana.webp" fetchpriority="high">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="preload" as="image" href="assets/img/hero-cafeteria.webp" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script type="application/ld+json">
   {
@@ -97,51 +97,66 @@
 
   <main id="contenido">
     <!-- ============ HERO ============ -->
-    <section class="hero" id="inicio" data-theme="americana" aria-roledescription="carrusel" aria-label="Bebidas frías destacadas">
+    <section class="hero" id="inicio" data-theme="cafeteria" aria-roledescription="carrusel" aria-label="Fotos de la carta de Clásica">
+      <div class="hero-media" aria-hidden="false">
+        <figure class="hero-photo is-active">
+          <img src="assets/img/hero-cafeteria.webp" width="510" height="340" alt="Taza de cerámica jaspeada con un cappuccino y una porción de torta, foto de Clásica" fetchpriority="high" decoding="async">
+        </figure>
+        <figure class="hero-photo">
+          <img src="assets/img/hero-desayuno.webp" width="510" height="340" alt="Medialunas y jugo de naranja, foto de Clásica" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-photo">
+          <img src="assets/img/hero-pasteleria.webp" width="510" height="340" alt="Porción de torta de chocolate y crema, foto de Clásica" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-photo">
+          <img src="assets/img/hero-jugos.webp" width="510" height="340" alt="Jugo de naranja en vaso alto, servido con una tostada, foto de Clásica" loading="lazy" decoding="async">
+        </figure>
+      </div>
+      <div class="hero-wash" aria-hidden="true"></div>
       <div class="bigword" aria-hidden="true">
-        <span class="is-active">Americana</span>
-        <span>Frutilla</span>
-        <span>Choc</span>
-        <span>Coco</span>
+        <span class="is-active">Cappuccino</span>
+        <span>Medialunas</span>
+        <span>Oreo</span>
+        <span>Ligero</span>
       </div>
 
       <div class="hero-grid">
         <div class="hero-copy">
         <article class="slide-copy is-active" aria-hidden="false" aria-roledescription="diapositiva" aria-label="1 de 4">
-          <p class="eyebrow">Café frappé · 01/04</p>
-          <h1 class="slide-title">Frappuccino <em>Americana</em></h1>
-          <p class="slide-desc">Helado de americana, cappuccino y chips de chocolate.</p>
-          <p class="slide-price"><strong>$6500</strong><small>Precio en carta</small></p>
+          <p class="eyebrow">Cafetería · 01/04</p>
+          <h1 class="slide-title">Cappuccino</h1>
+          <p class="slide-desc">Leche, chocolate, crema y canela.</p>
+          <p class="slide-price"><strong>$4100</strong><small>Precio en carta</small></p>
           <div class="btn-row">
             <a class="btn btn-solid" href="#carta">Ver la carta</a>
             <a class="btn btn-ghost" href="#sucursales">Sucursales <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
           </div>
         </article>
         <article class="slide-copy" aria-hidden="true" aria-roledescription="diapositiva" aria-label="2 de 4">
-          <p class="eyebrow">Café frappé · 02/04</p>
-          <h2 class="slide-title">Frappuccino <em>Frutilla</em></h2>
-          <p class="slide-desc">Helado de frutilla, cappuccino, crema y salsa de frutilla.</p>
-          <p class="slide-price"><strong>$6500</strong><small>Precio en carta</small></p>
+          <p class="eyebrow">Desayuno o merienda · 02/04</p>
+          <h2 class="slide-title">Medialunas</h2>
+          <p class="slide-desc">Dulces o saladas, recién horneadas.</p>
+          <p class="slide-price"><strong>$1300</strong><small>Precio en carta</small></p>
           <div class="btn-row">
             <a class="btn btn-solid" href="#carta">Ver la carta</a>
             <a class="btn btn-ghost" href="#sucursales">Sucursales <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
           </div>
         </article>
         <article class="slide-copy" aria-hidden="true" aria-roledescription="diapositiva" aria-label="3 de 4">
-          <p class="eyebrow">Café frappé · 03/04</p>
-          <h2 class="slide-title">Coffee<em>-choc</em></h2>
-          <p class="slide-desc">Helado de chocolate, café, salsa de caramelo, crema y cacao.</p>
-          <p class="slide-price"><strong>$6500</strong><small>Precio en carta</small></p>
+          <p class="eyebrow">Pastelería · 03/04</p>
+          <h2 class="slide-title">Choco Oreo</h2>
+          <p class="slide-desc">Oreo, dulce de leche y crema.</p>
+          <p class="slide-price"><strong>$6100</strong><small>Precio en carta</small></p>
           <div class="btn-row">
             <a class="btn btn-solid" href="#carta">Ver la carta</a>
             <a class="btn btn-ghost" href="#sucursales">Sucursales <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
           </div>
         </article>
         <article class="slide-copy" aria-hidden="true" aria-roledescription="diapositiva" aria-label="4 de 4">
-          <p class="eyebrow">Café frío · 04/04</p>
-          <h2 class="slide-title">Café frío <em>de coco</em></h2>
-          <p class="slide-desc">Café con leche, coco y dulce de leche.</p>
-          <p class="slide-price"><strong>$4200</strong><small>Precio en carta</small></p>
+          <p class="eyebrow">Jugos · 04/04</p>
+          <h2 class="slide-title">Ligero</h2>
+          <p class="slide-desc">Naranja y frutilla.</p>
+          <p class="slide-price"><strong>$5000</strong><small>Precio en carta</small></p>
           <div class="btn-row">
             <a class="btn btn-solid" href="#carta">Ver la carta</a>
             <a class="btn btn-ghost" href="#sucursales">Sucursales <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
@@ -149,61 +164,18 @@
         </article>
         </div>
 
-        <div class="stage">
-          <div class="stage-glow" aria-hidden="true"></div>
-          <div class="stage-floor" aria-hidden="true"></div>
-          <img class="drink is-active" src="assets/img/drink-americana.webp" width="660" height="880" alt="Frappuccino Americana: helado de americana, cappuccino y chips de chocolate" fetchpriority="high" decoding="async">
-          <img class="drink" src="assets/img/drink-frutilla.webp" width="660" height="880" alt="Frappuccino Frutilla: helado de frutilla, cappuccino, crema y salsa de frutilla" loading="lazy" decoding="async">
-          <img class="drink" src="assets/img/drink-coffeechoc.webp" width="660" height="880" alt="Coffee-choc: helado de chocolate, café, salsa de caramelo, crema y cacao" loading="lazy" decoding="async">
-          <img class="drink" src="assets/img/drink-coco.webp" width="660" height="880" alt="Café frío de coco: café con leche, coco y dulce de leche" loading="lazy" decoding="async">
-          <div class="ingredients" aria-hidden="true">
-          <div class="ing-set is-active" data-set="americana">
-            <span class="ing" style="--x:8%;--y:16%;--s:20%;--r:-25deg;--b:0px;--o:1;--i:0;--fx:-40px;--d:5.5s;--dl:0.0s"><img src="assets/img/ing-bean.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:93%;--y:34%;--s:17%;--r:15deg;--b:0px;--o:1;--i:1;--fx:40px;--d:6.2s;--dl:-0.9s"><img src="assets/img/ing-choc.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:88%;--y:6%;--s:11%;--r:40deg;--b:2.5px;--o:0.75;--i:2;--fx:40px;--d:6.9s;--dl:-1.8s"><img src="assets/img/ing-bean.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:6%;--y:68%;--s:12%;--r:-10deg;--b:2px;--o:0.8;--i:3;--fx:-40px;--d:7.6s;--dl:-2.7s"><img src="assets/img/ing-choc.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:93%;--y:74%;--s:14%;--r:18deg;--b:0px;--o:0.9;--i:4;--fx:40px;--d:8.3s;--dl:-3.6s"><span class="ice"></span></span>
-            <span class="ing" style="--x:14%;--y:96%;--s:10%;--r:60deg;--b:3px;--o:0.6;--i:5;--fx:-40px;--d:9.0s;--dl:-4.5s"><img src="assets/img/ing-bean.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-          </div>
-          <div class="ing-set" data-set="frutilla">
-            <span class="ing" style="--x:7%;--y:24%;--s:21%;--r:-18deg;--b:0px;--o:1;--i:0;--fx:-40px;--d:5.5s;--dl:0.0s"><img src="assets/img/ing-strawberry.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:93%;--y:60%;--s:19%;--r:20deg;--b:0px;--o:1;--i:1;--fx:40px;--d:6.2s;--dl:-0.9s"><img src="assets/img/ing-strawberry.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:88%;--y:8%;--s:11%;--r:35deg;--b:2.5px;--o:0.75;--i:2;--fx:40px;--d:6.9s;--dl:-1.8s"><img src="assets/img/ing-strawberry.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:6%;--y:72%;--s:15%;--r:-12deg;--b:0px;--o:0.9;--i:3;--fx:-40px;--d:7.6s;--dl:-2.7s"><span class="ice"></span></span>
-            <span class="ing" style="--x:86%;--y:96%;--s:10%;--r:40deg;--b:3px;--o:0.6;--i:4;--fx:40px;--d:8.3s;--dl:-3.6s"><img src="assets/img/ing-bean.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:16%;--y:2%;--s:9%;--r:-40deg;--b:3px;--o:0.55;--i:5;--fx:-40px;--d:9.0s;--dl:-4.5s"><img src="assets/img/ing-strawberry.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-          </div>
-          <div class="ing-set" data-set="coffeechoc">
-            <span class="ing" style="--x:7%;--y:20%;--s:21%;--r:-12deg;--b:0px;--o:1;--i:0;--fx:-40px;--d:5.5s;--dl:0.0s"><img src="assets/img/ing-choc.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:93%;--y:36%;--s:16%;--r:14deg;--b:0px;--o:1;--i:1;--fx:40px;--d:6.2s;--dl:-0.9s"><img src="assets/img/ing-caramel.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:88%;--y:6%;--s:11%;--r:30deg;--b:2.5px;--o:0.75;--i:2;--fx:40px;--d:6.9s;--dl:-1.8s"><img src="assets/img/ing-bean.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:6%;--y:72%;--s:12%;--r:-20deg;--b:2px;--o:0.8;--i:3;--fx:-40px;--d:7.6s;--dl:-2.7s"><img src="assets/img/ing-caramel.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:92%;--y:78%;--s:13%;--r:24deg;--b:0px;--o:0.95;--i:4;--fx:40px;--d:8.3s;--dl:-3.6s"><img src="assets/img/ing-choc.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:16%;--y:96%;--s:10%;--r:-50deg;--b:3px;--o:0.6;--i:5;--fx:-40px;--d:9.0s;--dl:-4.5s"><img src="assets/img/ing-bean.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-          </div>
-          <div class="ing-set" data-set="coco">
-            <span class="ing" style="--x:7%;--y:22%;--s:23%;--r:-14deg;--b:0px;--o:1;--i:0;--fx:-40px;--d:5.5s;--dl:0.0s"><img src="assets/img/ing-coconut.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:93%;--y:42%;--s:15%;--r:12deg;--b:0px;--o:1;--i:1;--fx:40px;--d:6.2s;--dl:-0.9s"><img src="assets/img/ing-caramel.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:88%;--y:6%;--s:12%;--r:30deg;--b:2.5px;--o:0.75;--i:2;--fx:40px;--d:6.9s;--dl:-1.8s"><img src="assets/img/ing-coconut.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:6%;--y:72%;--s:15%;--r:10deg;--b:0px;--o:0.9;--i:3;--fx:-40px;--d:7.6s;--dl:-2.7s"><span class="ice"></span></span>
-            <span class="ing" style="--x:92%;--y:80%;--s:11%;--r:40deg;--b:0px;--o:0.9;--i:4;--fx:40px;--d:8.3s;--dl:-3.6s"><img src="assets/img/ing-bean.webp" alt="" width="260" height="260" loading="lazy" decoding="async"></span>
-            <span class="ing" style="--x:16%;--y:2%;--s:9%;--r:-20deg;--b:3px;--o:0.55;--i:5;--fx:-40px;--d:9.0s;--dl:-4.5s"><span class="ice"></span></span>
-          </div>
-          </div>
-        </div>
-
-        <aside class="hero-side" aria-label="Elegí una bebida">
-          <p class="side-kicker">Frío, cremoso y con café</p>
-          <p class="side-text">Cuatro bebidas frías de nuestra carta. Elegí la tuya y pasá a buscarla por cualquier sucursal.</p>
+        <aside class="hero-side" aria-label="Elegí una foto de la carta">
+          <p class="side-kicker">La carta, como en el local.</p>
+          <p class="side-text">Fotos reales de Clásica. Café, desayuno, pastelería y jugos, con el precio de la carta.</p>
           <ul class="thumbs">
-          <li><button class="thumb" type="button" aria-current="true" aria-label="Ver Frappuccino Americana"><img src="assets/img/thumb-americana.webp" alt="" width="180" height="314" loading="lazy" decoding="async"><span class="bar"><i></i></span></button><span class="thumb-label" aria-hidden="true">Americana</span></li>
-          <li><button class="thumb" type="button" aria-current="false" aria-label="Ver Frappuccino Frutilla"><img src="assets/img/thumb-frutilla.webp" alt="" width="180" height="314" loading="lazy" decoding="async"><span class="bar"><i></i></span></button><span class="thumb-label" aria-hidden="true">Frutilla</span></li>
-          <li><button class="thumb" type="button" aria-current="false" aria-label="Ver Coffee-choc"><img src="assets/img/thumb-coffeechoc.webp" alt="" width="180" height="314" loading="lazy" decoding="async"><span class="bar"><i></i></span></button><span class="thumb-label" aria-hidden="true">Coffee-choc</span></li>
-          <li><button class="thumb" type="button" aria-current="false" aria-label="Ver Café frío de coco"><img src="assets/img/thumb-coco.webp" alt="" width="180" height="314" loading="lazy" decoding="async"><span class="bar"><i></i></span></button><span class="thumb-label" aria-hidden="true">Coco</span></li>
+          <li><button class="thumb" type="button" aria-current="true" aria-label="Ver Cappuccino"><img src="assets/img/thumb-cafeteria.webp" alt="" width="360" height="240" loading="lazy" decoding="async"><span class="bar"><i></i></span></button><span class="thumb-label" aria-hidden="true">Cappuccino</span></li>
+          <li><button class="thumb" type="button" aria-current="false" aria-label="Ver Medialunas"><img src="assets/img/thumb-desayuno.webp" alt="" width="360" height="240" loading="lazy" decoding="async"><span class="bar"><i></i></span></button><span class="thumb-label" aria-hidden="true">Medialunas</span></li>
+          <li><button class="thumb" type="button" aria-current="false" aria-label="Ver Choco Oreo"><img src="assets/img/thumb-pasteleria.webp" alt="" width="360" height="240" loading="lazy" decoding="async"><span class="bar"><i></i></span></button><span class="thumb-label" aria-hidden="true">Choco Oreo</span></li>
+          <li><button class="thumb" type="button" aria-current="false" aria-label="Ver jugo Ligero"><img src="assets/img/thumb-jugos.webp" alt="" width="360" height="240" loading="lazy" decoding="async"><span class="bar"><i></i></span></button><span class="thumb-label" aria-hidden="true">Ligero</span></li>
           </ul>
           <div class="controls">
-            <button class="ctrl ctrl-prev" type="button" aria-label="Bebida anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
-            <button class="ctrl ctrl-next" type="button" aria-label="Bebida siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+            <button class="ctrl ctrl-prev" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <button class="ctrl ctrl-next" type="button" aria-label="Foto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
             <button class="ctrl ctrl-play" type="button" aria-pressed="false" aria-label="Pausar rotación automática">
               <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="6" width="3" height="12" rx="1"/><rect x="14" y="6" width="3" height="12" rx="1"/></svg>
               <svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none"><path d="M8 6v12l10-6z"/></svg>
@@ -221,15 +193,15 @@
       <div class="wrap about-grid">
         <div class="reveal">
           <p class="kicker">Nosotros</p>
-          <h2 class="h2" id="h-nosotros">Panadería y cafetería <em>en Bahía Blanca</em></h2>
+          <h2 class="h2" id="h-nosotros">Panadería y cafetería <span class="hl">en Bahía Blanca</span></h2>
           <p class="lead">En Clásica tenés café, desayunos y meriendas, pastelería, cosas dulces y saladas. Pasá por cualquiera de nuestras cuatro sucursales en la ciudad.</p>
           <ul class="about-tags">
             <li>Cafetería</li><li>Panadería</li><li>Pastelería</li><li>Desayunos y meriendas</li>
           </ul>
         </div>
         <div class="about-photos reveal">
-          <figure class="p1"><img src="assets/img/local-cafe.webp" alt="Cappuccino servido en taza de cerámica con una porción de torta de fondo" width="510" height="340" loading="lazy" decoding="async"></figure>
-          <figure class="p2"><img src="assets/img/local-pasteleria.webp" alt="Pastelería de Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
+          <figure class="p1"><img src="assets/img/cat-especialidades.webp" alt="Vidriera de Clásica: facturas, tortas y galletitas" width="787" height="656" loading="lazy" decoding="async"></figure>
+          <figure class="p2"><img src="assets/img/cat-taza.webp" alt="Taza de cerámica jaspeada de Clásica, con una porción de torta atrás" width="510" height="340" loading="lazy" decoding="async"></figure>
         </div>
       </div>
     </section>
@@ -239,7 +211,7 @@
       <div class="wrap menu-head reveal">
         <div>
           <p class="kicker">Nuestra carta</p>
-          <h2 class="h2" id="h-carta">Para cada <em>momento del día</em></h2>
+          <h2 class="h2" id="h-carta">Para cada <span class="hl">momento del día</span></h2>
         </div>
         <p class="menu-note">Precios en pesos argentinos, sujetos a cambios.</p>
       </div>
@@ -257,6 +229,7 @@
       <div class="panel" role="tabpanel" id="panel-cafe" aria-labelledby="tab-cafe" tabindex="0">
         <div class="cats">
         <section class="cat" id="carta-cafeteria" aria-labelledby="h-cafeteria">
+          <figure class="cat-photo"><img src="assets/img/cat-cafeteria.webp" alt="Cappuccino en taza de cerámica jaspeada, foto de la cafetería de Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-cafeteria">Cafetería <span>24</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -347,6 +320,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-cafe-frappe" aria-labelledby="h-cafe-frappe">
+          <figure class="cat-photo"><img src="assets/img/cat-cafeteria.webp" alt="Foto de la cafetería de Clásica (no hay foto propia de frappé en la web oficial)" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-cafe-frappe">Café frappé <span>03</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -365,6 +339,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-jugos" aria-labelledby="h-jugos">
+          <figure class="cat-photo"><img src="assets/img/cat-jugos.webp" alt="Jugo servido en vaso alto, foto de Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-jugos">Jugos <span>06</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -394,6 +369,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-jugos-botellones" aria-labelledby="h-jugos-botellones">
+          <figure class="cat-photo"><img src="assets/img/cat-jugos.webp" alt="Foto de jugos de Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-jugos-botellones">Jugos botellones <span>05</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -415,6 +391,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-milkshakes" aria-labelledby="h-milkshakes">
+          <figure class="cat-photo"><img src="assets/img/cat-jugos.webp" alt="Foto de bebidas de Clásica (la web oficial no publica una foto propia de milkshakes)" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-milkshakes">Milkshakes <span>03</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -433,6 +410,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-licuados" aria-labelledby="h-licuados">
+          <figure class="cat-photo"><img src="assets/img/cat-jugos.webp" alt="Foto de jugos de Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-licuados">Licuados <span>04</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -453,6 +431,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-bebidas" aria-labelledby="h-bebidas">
+          <figure class="cat-photo"><img src="assets/img/cat-cervezas.webp" alt="Foto de bebidas de Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-bebidas">Bebidas <span>05</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -478,6 +457,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-cervezas" aria-labelledby="h-cervezas">
+          <figure class="cat-photo"><img src="assets/img/cat-cervezas.webp" alt="Cervezas de la carta de Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-cervezas">Cervezas <span>07</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -516,6 +496,7 @@
       <div class="panel" role="tabpanel" id="panel-dulce" aria-labelledby="tab-dulce" tabindex="0">
         <div class="cats">
         <section class="cat" id="carta-desayuno-o-merienda" aria-labelledby="h-desayuno-o-merienda">
+          <figure class="cat-photo"><img src="assets/img/cat-desayuno.webp" alt="Medialunas y jugo de naranja, foto de Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-desayuno-o-merienda">Desayuno o merienda <span>08</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -549,6 +530,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-cualquier-momento-del-dia" aria-labelledby="h-cualquier-momento-del-dia">
+          <figure class="cat-photo"><img src="assets/img/cat-desayuno.webp" alt="Foto de desayuno de Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-cualquier-momento-del-dia">Cualquier momento del día <span>07</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -582,6 +564,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-delicatessen-clasica" aria-labelledby="h-delicatessen-clasica">
+          <figure class="cat-photo"><img src="assets/img/cat-delicatessen.webp" alt="Delicatessen Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-delicatessen-clasica">Delicatessen Clásica <span>12</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -628,6 +611,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-pasteleria" aria-labelledby="h-pasteleria">
+          <figure class="cat-photo"><img src="assets/img/cat-pasteleria.webp" alt="Porción de torta de Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-pasteleria">Pastelería <span>14</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -680,6 +664,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-waffles-dulces" aria-labelledby="h-waffles-dulces">
+          <figure class="cat-photo"><img src="assets/img/cat-waffles.webp" alt="Waffles dulces de Clásica, con frutas, crema y helado" width="1400" height="949" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-waffles-dulces">Waffles Dulces <span>05</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -710,6 +695,7 @@
       <div class="panel" role="tabpanel" id="panel-salado" aria-labelledby="tab-salado" tabindex="0">
         <div class="cats">
         <section class="cat" id="carta-tostados" aria-labelledby="h-tostados">
+          <figure class="cat-photo"><img src="assets/img/cat-tostados.webp" alt="Tostados de Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-tostados">Tostados <span>08</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -743,6 +729,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-sandwiches-frios" aria-labelledby="h-sandwiches-frios">
+          <figure class="cat-photo"><img src="assets/img/cat-sandwiches-frios.webp" alt="Sándwiches fríos de Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-sandwiches-frios">Sándwiches fríos <span>01</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -753,6 +740,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-sandwiches-tibios" aria-labelledby="h-sandwiches-tibios">
+          <figure class="cat-photo"><img src="assets/img/cat-sandwiches-frios.webp" alt="Foto de sándwiches de Clásica (la web oficial no publica una foto propia de los tibios)" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-sandwiches-tibios">Sándwiches tibios <span>05</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -779,6 +767,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-quesadillas" aria-labelledby="h-quesadillas">
+          <figure class="cat-photo"><img src="assets/img/cat-quesadillas.webp" alt="Quesadillas de Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-quesadillas">Quesadillas <span>04</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -801,6 +790,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-burgers" aria-labelledby="h-burgers">
+          <figure class="cat-photo"><img src="assets/img/cat-hamburguesas.webp" alt="Hamburguesa de Clásica, con Coca-Cola" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-burgers">Burgers <span>03</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -819,6 +809,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-sandwiches-de-ternera" aria-labelledby="h-sandwiches-de-ternera">
+          <figure class="cat-photo"><img src="assets/img/cat-lomitos.webp" alt="Sándwich de ternera de Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-sandwiches-de-ternera">Sándwiches de Ternera <span>04</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -841,6 +832,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-milanesas-de-carne" aria-labelledby="h-milanesas-de-carne">
+          <figure class="cat-photo"><img src="assets/img/cat-hamburguesas.webp" alt="Foto de salados de Clásica (la web oficial no publica una foto propia de milanesas)" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-milanesas-de-carne">Milanesas de carne <span>04</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -863,6 +855,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-nuestras-papas" aria-labelledby="h-nuestras-papas">
+          <figure class="cat-photo"><img src="assets/img/cat-hamburguesas.webp" alt="Foto de salados de Clásica (la web oficial no publica una foto propia de papas)" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-nuestras-papas">Nuestras papas <span>03</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -880,6 +873,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-empanadas" aria-labelledby="h-empanadas">
+          <figure class="cat-photo"><img src="assets/img/cat-delicatessen.webp" alt="Foto de la carta de Clásica (la web oficial no publica una foto propia de empanadas)" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-empanadas">Empanadas <span>01</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -889,6 +883,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-ensaladas" aria-labelledby="h-ensaladas">
+          <figure class="cat-photo"><img src="assets/img/cat-ensaladas.webp" alt="Ensaladas de Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-ensaladas">Ensaladas <span>06</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -919,6 +914,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-omelette" aria-labelledby="h-omelette">
+          <figure class="cat-photo"><img src="assets/img/cat-desayuno.webp" alt="Foto de desayuno de Clásica (la web oficial no publica una foto propia de omelette)" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-omelette">Omelette <span>04</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -941,6 +937,7 @@
           </ul>
         </section>
         <section class="cat" id="carta-pizzetas" aria-labelledby="h-pizzetas">
+          <figure class="cat-photo"><img src="assets/img/cat-pizzetas.webp" alt="Pizzetas de Clásica" width="510" height="340" loading="lazy" decoding="async"></figure>
           <h3 class="cat-title" id="h-pizzetas">Pizzetas <span>05</span></h3>
           <hr class="cat-rule">
           <ul class="items">
@@ -976,7 +973,7 @@
       <div class="wrap">
         <div class="reveal">
           <p class="kicker">Sucursales y contacto</p>
-          <h2 class="h2" id="h-sucursales">Te esperamos <em>en Bahía Blanca</em></h2>
+          <h2 class="h2" id="h-sucursales">Te esperamos <span class="hl">en Bahía Blanca</span></h2>
           <p class="lead">Elegí la sucursal que te quede más cerca.</p>
         </div>
         <div class="places-grid">
