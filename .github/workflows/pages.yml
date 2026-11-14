@@ -29,9 +29,13 @@ jobs:
           enablement: true
       - name: Prepare site
         run: |
-          mkdir -p _site/assets
+          mkdir -p _site/assets/img
           cp index.html _site/
-          cp -r assets/css assets/js assets/img _site/assets/
+          cp -r assets/css assets/js _site/assets/
+          for f in encoded-assets/*.b64; do
+            name=$(basename "$f" .b64)
+            base64 -d "$f" > "_site/assets/img/$name"
+          done
           touch _site/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
